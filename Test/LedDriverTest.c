@@ -10,5 +10,4 @@ TEST_TEAR_DOWN(LedDriver){
 }
 
 TEST(LedDriver, LedsOffAfterCreate){
-    TEST_FAIL_MESSAGE("Start hear");
 }
