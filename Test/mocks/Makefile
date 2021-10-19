@@ -1,17 +1,18 @@
 # (1)コンパイラ
 CC  = gcc
 # (2)コンパイルオプション
-CFLAGS    =
+CFLAGS    = 
+
 # (3)実行ファイル名
-TARGET  = libLedDriver.a
+TARGET  = ..\libmocks.a
 # (4)コンパイル対象のソースコード
-SRCS    = LedDriver.c
+SRCS    = RuntimeErrorStub.c
 
 # (5)オブジェクトファイル名
 OBJS    = $(SRCS:.c=.o)
- 
+
 # (6)インクルードファイルのあるディレクトリパス
-INCDIR  = 
+INCDIR  = -I..\..\LedDriver
  
 # (7)ライブラリファイルのあるディレクトリパス
 LIBDIR  = 
@@ -20,10 +21,9 @@ LIBDIR  =
 LIBS    = 
 
 # (9)ターゲットファイル生成
-$(TARGET): $(OBJS)
-#	$(CC) -o $@ $^ $(LIBDIR) $(LIBS)
+$(TARGET): $(OBJS) 
 	$(AR) r $@ $^
-	
+
 # (10)オブジェクトファイル生成
 $(OBJS): $(SRCS)
 	$(CC) $(CFLAGS) $(INCDIR) -c $(SRCS)
@@ -32,5 +32,4 @@ $(OBJS): $(SRCS)
 all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
-	-rm $(OBJS) $(TARGET) 
-#	-rm -f $(OBJS) $(TARGET) *.d
+	del $(OBJS) $(UNITY_OBJS) $(LIBS) $(TARGET) 

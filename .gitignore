@@ -1,3 +1,7 @@
 Test/LedDriverTest.exe
 Test/libUnity.a
-Test/*.o
+Test/libmocks.a
+LedDriver/LedDriver.o
+LedDriver/libLedDriver.a
+Test/LedDriverTest.o
+Test/mocks/RuntimeErrorStub.o
