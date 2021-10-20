@@ -32,5 +32,4 @@ $(OBJS): $(SRCS)
 all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
-	-rm $(OBJS) $(TARGET) 
-#	-rm -f $(OBJS) $(TARGET) *.d
+	del $(OBJS) $(TARGET) 
