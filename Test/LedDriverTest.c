@@ -78,3 +78,7 @@ TEST(LedDriver, OutOfBoundsProducesRuntimeError){
             RuntimeErrorStub_GetLastError());
     TEST_ASSERT_EQUAL(-1, RuntimeErrorStub_GetLastParameter());
 }
+
+IGNORE_TEST(LedDriver, OutOfBoundsToDo){
+    /* TODO: 実行中に何をするべきだろうか？ */
+}
