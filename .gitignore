@@ -5,3 +5,5 @@ LedDriver/LedDriver.o
 LedDriver/libLedDriver.a
 Test/LedDriverTest.o
 Test/mocks/RuntimeErrorStub.o
+Test/LedDriverTest.o
+Test/LedDriverTestRunner.o

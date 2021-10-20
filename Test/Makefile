@@ -8,14 +8,14 @@ TARGET  = LedDriverTest.exe
 # (4)コンパイル対象のソースコード
 SRCS    = AllTest.c LedDriverTest.c LedDriverTestRunner.c
 UNITY_SRCS = src\unity.c extras\fixture\src\unity_fixture.c extras\memory\src\unity_memory.c
-#PROD_SRCS = ..\LedDriver\LedDriver.c
+PROD_SRCS = ..\LedDriver\LedDriver.c
 
 # (5)オブジェクトファイル名
 OBJS    = $(SRCS:.c=.o)
 UNITY_OBJS = unity.o unity_fixture.o unity_memory.o
 PROD_OBJS = LedDriver.o
 UNITY_LIB = libUnity.a
-#PROD_LIB = libLedDriver.a
+PROD_LIB = libLedDriver.a
 MOCKS_OBJS = RuntimeErrorStub.o
 #MOCKS_LIB = libmocks.a
 
