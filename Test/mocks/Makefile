@@ -1,7 +1,7 @@
 # (1)コンパイラ
 CC  = gcc
 # (2)コンパイルオプション
-CFLAGS    = 
+CFLAGS    = -g
 
 # (3)実行ファイル名
 TARGET  = ../libmocks.a
