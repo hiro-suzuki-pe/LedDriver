@@ -2,18 +2,18 @@ CC = gcc
 ifeq ($(shell uname -s), Darwin)
 CC = clang
 endif
-#DEBUG = -O0 -g
+CFLAGS = -g
 CFLAGS += -std=c99 -pedantic -Wall -Wextra -Werror -DUNITY_FIXTURE_NO_EXTRAS
 CFLAGS += $(DEBUG)
-SRC = ../src/unity_fixture.c \
-      ../../../src/unity.c   \
-      unity_fixture_Test.c   \
-      unity_fixture_TestRunner.c \
+SRC = ../src/unity_fixture.c /
+      ../../../src/unity.c   /
+      unity_fixture_Test.c   /
+      unity_fixture_TestRunner.c /
       main/AllTests.c
 
 INC_DIR = -I../src -I../../../src/
 BUILD_DIR = ../build
-TARGET = ../build/fixture_tests.exe
+TARGET = ../build/fixture_tests
 
 all: default noStdlibMalloc 32bits
 
@@ -45,11 +45,11 @@ clean:
 	rm -f $(TARGET) $(BUILD_DIR)/*.gc*
 
 cov: $(BUILD_DIR)
-	cd $(BUILD_DIR) && \
+	cd $(BUILD_DIR) && /
 	$(CC) $(DEFINES) $(foreach i, $(SRC), ../test/$(i)) $(INC_DIR) -o $(TARGET) -fprofile-arcs -ftest-coverage
 	rm -f $(BUILD_DIR)/*.gcda
 	./$(TARGET) > /dev/null ; ./$(TARGET) -v > /dev/null
-	cd $(BUILD_DIR) && \
+	cd $(BUILD_DIR) && /
 	gcov unity_fixture.c | head -3
 	grep '###' $(BUILD_DIR)/unity_fixture.c.gcov -C2 || true # Show uncovered lines
 

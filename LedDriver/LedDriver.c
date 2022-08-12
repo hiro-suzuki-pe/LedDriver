@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include "ledDriver.h"
+#include "LedDriver.h"
 #include "RuntimeError.h"
 
 enum {ALL_LEDS_ON = ~0, ALL_LEDS_OFF = ~ALL_LEDS_ON};

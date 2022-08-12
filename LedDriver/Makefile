@@ -1,7 +1,7 @@
 # (1)コンパイラ
 CC  = gcc
 # (2)コンパイルオプション
-CFLAGS    =
+CFLAGS    = -g
 # (3)実行ファイル名
 TARGET  = libLedDriver.a
 # (4)コンパイル対象のソースコード
@@ -32,4 +32,4 @@ $(OBJS): $(SRCS)
 all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
-	del $(OBJS) $(TARGET) 
+	rm -f $(OBJS) $(TARGET) 

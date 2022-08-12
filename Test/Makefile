@@ -1,14 +1,14 @@
 # (1)コンパイラ
 CC  = gcc
 # (2)コンパイルオプション
-CFLAGS    = 
+CFLAGS    = -w -g
 
 # (3)実行ファイル名
-TARGET  = LedDriverTest.exe
+TARGET  = LedDriverTest
 # (4)コンパイル対象のソースコード
 SRCS    = AllTest.c LedDriverTest.c LedDriverTestRunner.c
-UNITY_SRCS = src\unity.c extras\fixture\src\unity_fixture.c extras\memory\src\unity_memory.c
-PROD_SRCS = ..\LedDriver\LedDriver.c
+UNITY_SRCS = src/unity.c extras/fixture/src/unity_fixture.c extras/memory/src/unity_memory.c
+PROD_SRCS = ../LedDriver/LedDriver.c
 
 # (5)オブジェクトファイル名
 OBJS    = $(SRCS:.c=.o)
@@ -17,29 +17,28 @@ PROD_OBJS = LedDriver.o
 UNITY_LIB = libUnity.a
 PROD_LIB = libLedDriver.a
 MOCKS_OBJS = RuntimeErrorStub.o
-#MOCKS_LIB = libmocks.a
 
 # (6)インクルードファイルのあるディレクトリパス
-INCDIR  = -Isrc -Iextras\fixture\src -Iextras\memory\src -I..\LedDriver
+INCDIR  = -Isrc -Iextras/fixture/src -Iextras/memory/src -I../LedDriver
  
 # (7)ライブラリファイルのあるディレクトリパス
-LIBDIR  = -L. -L..\LedDriver
+LIBDIR  = -L. -L../LedDriver
  
 # (8)追加するライブラリファイル
 LIBS    = -lLedDriver -lUnity -lmocks
 
 # (9)ターゲットファイル生成
-$(TARGET): $(OBJS) $(PROD_LIB) 
-	make -C ..\LedDriver
+$(TARGET): $(OBJS) $(PROD_LIB) $(UNITY_LIB)
+	make -C ../LedDriver
 	make -C mocks
 	$(CC) -o $@ $(OBJS) $(LIBDIR) $(LIBS)
-	$(TARGET)
+#	$(TARGET)
 
 $(UNITY_LIB):	$(UNITY_OBJS)
 	$(AR) r $@ $^
 
 $(PROD_LIB):	$(PROD_OBJS)
-	make -C ..\LedDriver
+	make -C ../LedDriver
 
 #$(MOCKS_LIB):	$(MOCKS_OBJS)
 #	make -C mocks
@@ -56,6 +55,6 @@ $(UNITY_OBJS): $(UNITY_SRCS)
 all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
-	make clean -C ..\LedDriver  
+	make clean -C ../LedDriver  
 	make clean -C mocks  
-	del $(OBJS) $(UNITY_OBJS) $(LIBS) $(TARGET) 
+	rm -f $(OBJS) $(UNITY_OBJS) $(TARGET) 

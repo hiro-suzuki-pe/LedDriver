@@ -4,7 +4,7 @@ CC  = gcc
 CFLAGS    = 
 
 # (3)実行ファイル名
-TARGET  = ..\libmocks.a
+TARGET  = ../libmocks.a
 # (4)コンパイル対象のソースコード
 SRCS    = RuntimeErrorStub.c
 
@@ -12,7 +12,7 @@ SRCS    = RuntimeErrorStub.c
 OBJS    = $(SRCS:.c=.o)
 
 # (6)インクルードファイルのあるディレクトリパス
-INCDIR  = -I..\..\LedDriver
+INCDIR  = -I../../LedDriver
  
 # (7)ライブラリファイルのあるディレクトリパス
 LIBDIR  = 
@@ -32,4 +32,4 @@ $(OBJS): $(SRCS)
 all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
-	del $(OBJS) $(UNITY_OBJS) $(LIBS) $(TARGET) 
+	rm -f $(OBJS) $(UNITY_OBJS) $(LIBS) $(TARGET) 
