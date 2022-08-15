@@ -19,7 +19,7 @@ PROD_LIB = libLedDriver.a
 MOCKS_OBJS = RuntimeErrorStub.o
 
 # (6)インクルードファイルのあるディレクトリパス
-INCDIR  = -Isrc -Iextras/fixture/src -Iextras/memory/src -I../LedDriver
+INCDIR  = -Isrc -Iextras/fixture/src -Iextras/memory/src -I../LedDriver -Imocks
  
 # (7)ライブラリファイルのあるディレクトリパス
 LIBDIR  = -L. -L../LedDriver
@@ -32,7 +32,7 @@ $(TARGET): $(OBJS) $(PROD_LIB) $(UNITY_LIB)
 	make -C ../LedDriver
 	make -C mocks
 	$(CC) -o $@ $(OBJS) $(LIBDIR) $(LIBS)
-#	$(TARGET)
+	$(TARGET)
 
 $(UNITY_LIB):	$(UNITY_OBJS)
 	$(AR) r $@ $^

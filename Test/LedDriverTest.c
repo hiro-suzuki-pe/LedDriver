@@ -1,5 +1,6 @@
 #include "unity_fixture.h"
 #include "LedDriver.h"
+#include "RuntimeErrorStub.h"
 
 TEST_GROUP(LedDriver);
 
