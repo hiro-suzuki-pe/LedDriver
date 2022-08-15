@@ -8,3 +8,4 @@ Test/mocks/*.o
 .vscode/targets.log
 Test/AllTest.o
 Test/LedDriver.o
+Test/LedDriverTest
